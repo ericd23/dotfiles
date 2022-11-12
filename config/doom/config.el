@@ -185,8 +185,8 @@ This function just change the original =org-set-property= and call
   :after org-roam
   :config
   (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow t
-        org-roam-ui-update-on-save t
+        org-roam-ui-follow nil
+        org-roam-ui-update-on-save nil
         org-roam-ui-open-on-start t))
 
 (use-package! org-xournalpp ; not using the minor mode itself at all: cannot handle multiple pages
