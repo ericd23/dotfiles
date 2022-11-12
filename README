@@ -1,0 +1,11 @@
+Linux and OpenBSD dotfiles
+
+what:
+* managed with rcm
+* use default if it works great, both programs and configurations
+* consistency across systems if possible
+
+how:
+* understand how rcm works
+* manually create and configure ~/.rcrc
+* this folder exists at ~/.dotfiles as a dir or a symlink

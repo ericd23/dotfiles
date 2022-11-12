@@ -1,0 +1,36 @@
+#!/bin/bash
+# back up important files
+
+cat <<EOF >/tmp/back0-list
+-C$HOME
+documents
+downloads
+mails
+pictures
+prod
+src
+tmp
+
+.config/calibre
+.config/gnupg
+.config/REAPER
+.config/spotify-tui
+.config/syncthing
+.config/xournalpp
+.config/okularrc
+
+.emacs.d
+.emacs.doom
+
+.local/share/pass
+.local/share/zotero
+.local/share/syncthing
+
+.mozilla/firefox/bg44ud8c.default-release
+
+.ssh
+.zotero
+.mbsyncrc
+EOF
+
+tar cPf home.tar --files-from /tmp/back0-list

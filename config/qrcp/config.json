@@ -1,0 +1,10 @@
+{
+    "fqdn": "",
+    "interface": "net0",
+    "port": 1234,
+    "keepAlive": true,
+    "path": "q",
+    "secure": false,
+    "tls-key": "",
+    "tls-cert": ""
+}

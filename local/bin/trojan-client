@@ -1,0 +1,81 @@
+#!/bin/bash
+
+choose_node() {
+    echo "[?] No nodes cache found."
+    mapfile -t nodes < <(cat $1 | awk '{print $1}')
+    for i in "${!nodes[@]}"; do
+        printf "%s.%s\n" "$i" "${nodes[$i]}"
+    done
+    read -p "Choose node (NUM): " n
+    if [ -z "$n" ]; then
+        echo "None chosen. Exit."
+        exit 1
+    fi
+    echo "${nodes[$n]}" >$2
+}
+
+start_trojan_client() {
+    echo "[+] Starting Trojan."
+    tj_config_d=/etc/trojan
+    tj_nodes_f=$tj_config_d/nodes
+    tj_node_cache=$tj_config_d/last
+
+    if [ ! -f $tj_node_cache ]; then
+        choose_node $tj_nodes_f $tj_node_cache
+    else
+        echo "Last used node: $(cat $tj_node_cache)"
+        ask "Choose a new one?" N && choose_tj_node $tj_nodes_f $tj_node_cache
+    fi
+
+    cat $tj_nodes_f | grep $(cat $tj_node_cache) | while read -r a password tjhost port sni; do
+        cat <<EOF >/etc/trojan/client.json
+{
+  "run_type": "client",
+  "local_addr": "127.0.0.1",
+  "local_port": 1080,
+  "remote_addr": "$tjhost",
+  "remote_port": $port,
+  "password": [
+    "$password"
+  ],
+  "log_level": 1,
+  "ssl": {
+    "verify": false,
+    "verify_hostname": true,
+    "cert": "",
+    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:AES128-SHA:AES256-SHA:DES-CBC3-SHA",
+    "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
+    "sni": "$sni",
+    "alpn": [
+      "h2",
+      "http/1.1"
+    ],
+    "reuse_session": true,
+    "session_ticket": false,
+    "curves": ""
+  },
+  "tcp": {
+    "no_delay": true,
+    "keep_alive": true,
+    "reuse_port": false,
+    "fast_open": false,
+    "fast_open_qlen": 20
+  }
+}
+EOF
+    done
+    nohup trojan -c /etc/trojan/client.json >/tmp/trojan_log 2>&1 &
+    disown
+}
+
+if [ $EUID -ne 0 ]; then
+    echo "Run as root. Exit."
+    exit 1
+fi
+
+if [ ! -f /etc/trojan/nodes ]; then
+    echo "No node list. Exit."
+    exit 1
+fi
+
+start_trojan_client

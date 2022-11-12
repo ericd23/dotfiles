@@ -1,0 +1,23 @@
+IMAPAccount mailboxorg
+Host imap.mailbox.org
+UserCmd "pass mailbox.org/email"
+PassCmd "pass mailbox.org/password"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore mailboxorg-remote
+Account mailboxorg
+
+MaildirStore mailboxorg-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/mails/
+Inbox ~/mails/Inbox
+
+Channel mailboxorg
+Far :mailboxorg-remote:
+Near :mailboxorg-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *

@@ -1,0 +1,41 @@
+udisks='auto'
+
+show_internal='1'
+show_removable='1'
+show_optical='0'
+show_commands='1'
+
+colourize='1'
+pretty='0'
+
+# TODO
+# mount_options='--options nosuid,noexec,noatime'
+
+filemanager() {
+   /usr/local/bin/st -e /usr/bin/lf "$1" & >/dev/null 2>&1
+}
+
+# TODO
+#custom4_show='0'
+#custom4_desc='changeme'
+#custom4_command() {
+#    sudo mount --options remount,ro "$1" "/mnt/${1##*/}"
+#}
+#custom5_show='0'
+#custom5_desc='changeme'
+#custom5_command() {
+#
+#}
+#custom6_show='0'
+#custom6_desc='changeme'
+#custom6_command() {
+#
+#}
+#run_post_mount='0'
+#post_mount() {
+#
+#}
+#run_post_unmount='0'
+#post_unmount() {
+#
+#}
