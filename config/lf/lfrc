@@ -67,11 +67,6 @@ cmd annotate ${{
   xournalpp $fx >/dev/null 2>&1 & disown
 }}
 
-cmd helixedit ${{
-  set -f
-  helix $fx
-}}
-
 cmd ecnwedit ${{
   set -f
   emacsclient -nw $fx
@@ -89,6 +84,5 @@ map A annotate
 map <enter> shell
 map x $$f
 map X !$f
-map H helixedit
 map e ecnwedit
 map E ecedit
