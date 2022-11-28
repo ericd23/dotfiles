@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; vars
-(setq user-full-name "ed"
+(setq user-full-name "ericd"
       user-mail-address "ed@mailbox.org"
       doom-font (font-spec :family "Fira Code" :size 18)
       doom-unicode-font (font-spec :family "Source Han Sans CN" :size 18)
@@ -127,6 +127,9 @@ This function just change the original =org-set-property= and call
           ("m" "Music" entry
            (file "dump/todo.org")
            "* TODO %? :music:\n")
+          ("g" "Grad" entry
+           (file "dump/grad.org")
+           "* TODO %?\n")
           ("t" "thought" entry
            (file "dump/thought.org")
            "* TODO %?\n")
@@ -157,6 +160,7 @@ This function just change the original =org-set-property= and call
        :side right :width .33 :height .5 :ttl nil :modeline nil :quit nil :slot 2)))
   (add-hook 'org-roam-mode-hook #'turn-on-visual-line-mode)
   (add-hook 'org-roam-capture-new-node-hook #'ed/org-set-hugo-draft-true)
+  ;; (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   (setq org-roam-capture-templates
         '(("d" "dots" plain "%?"
            :target (file+head
@@ -175,8 +179,7 @@ This function just change the original =org-set-property= and call
                     "articles/%<%Y%m%d%H%M%S>.org"
                     "#+title: ${title}\n#+hugo_section: articles\n")
            :immediate-finish t
-           :unnarrowed t)))
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag))))
+           :unnarrowed t))))
 
 (use-package! websocket
   :after org-roam)

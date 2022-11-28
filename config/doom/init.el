@@ -35,7 +35,7 @@
 
        :checkers
        ; syntax
-       ; spell
+       (spell +aspell)
 
        :tools
        editorconfig
