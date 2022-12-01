@@ -1,7 +1,2 @@
 #!/bin/sh
-
-if [ "$#" -eq 0 ]; then
-  emacsclient -c >/dev/null 2>&1 & disown
-else
-  emacsclient -c "$@" >/dev/null 2>&1 & disown
-fi
+emacsclient -c "$@" >/dev/null 2>&1 & disown
