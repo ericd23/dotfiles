@@ -8,7 +8,7 @@ xinput set-prop "Synaptics TM3203-003"           "libinput Tapping Enabled"     
 # background programs
 export $(dbus-launch) # dbus must come first
 dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY & # for gnome-keyring
-feh --randomize --bg-fill ${HOME}/pictures/wallpapers/* --no-fehbg &
+# feh --randomize --bg-fill ${HOME}/pictures/wallpapers/* --no-fehbg &
 dwmblocks &
 xautolock -time 10 -locker slock &
 redshift &
