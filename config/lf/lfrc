@@ -77,6 +77,16 @@ cmd ecedit ${{
   ec $fx
 }}
 
+cmd emnwedit ${{
+  set -f
+  em -nw $fx
+}}
+
+cmd emedit ${{
+  set -f
+  em $fx
+}}
+
 map C extract
 map D delete
 map T transfer
@@ -86,3 +96,5 @@ map x $$f
 map X !$f
 map e ecnwedit
 map E ecedit
+map m emnwedit
+map M emedit
