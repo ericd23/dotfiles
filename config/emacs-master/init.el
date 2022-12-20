@@ -90,6 +90,8 @@
 
 (setq org-directory "~/documents/org")
 
+(setq native-comp-async-report-warnings-errors 'silent)
+
 
 ;;; uses
 
