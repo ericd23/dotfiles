@@ -7,7 +7,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(dolist (package '(elisp-slime-nav use-package meow simpleclip magit company))
+(dolist (package '(elisp-slime-nav meow simpleclip magit company))
   (unless (package-installed-p package)
     (package-install package)))
 
