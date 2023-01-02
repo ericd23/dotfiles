@@ -1,0 +1,2 @@
+#!/bin/sh
+gdb --args ./emacs --init-directory=~/.config/emacs-debug/ "$@"
