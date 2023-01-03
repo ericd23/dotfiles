@@ -53,7 +53,6 @@
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (global-set-key (kbd "M-z") 'zap-up-to-char)
 
-  (savehist-mode 1)
   (setq save-interprogram-paste-before-kill t
         apropos-do-all t
         load-prefer-newer t

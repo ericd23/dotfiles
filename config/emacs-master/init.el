@@ -1,7 +1,58 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 
-;;; pkgs
+;;; stuff
+(setq inhibit-startup-screen t)
+(menu-bar-mode -1)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(when (fboundp 'horizontal-scroll-bar-mode)
+  (horizontal-scroll-bar-mode -1))
+
+(set-frame-font "Fira Code 14" nil t)
+
+(load-theme 'modus-vivendi)
+(global-set-key (kbd "<f6>") 'toggle-theme)
+
+(setq-default show-trailing-whitespace t)
+
+(setq scroll-step 1)
+(setq scroll-margin 2)
+
+(setq uniquify-buffer-name-style 'forward)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+(setq mouse-yank-at-point t
+      require-final-newline t
+      visible-bell t
+      backup-by-copying t
+      custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+(global-set-key (kbd "C-c K") 'kill-current-buffer)
+
+(setq org-directory "~/documents/org")
+
+(electric-pair-mode 1)
+
+(setq vc-follow-symlinks t)
+
+(setq native-comp-async-report-warnings-errors 'silent)
+
+(savehist-mode 1)
+
+
+;;; packages
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -9,7 +60,13 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(dolist (package '(elisp-slime-nav meow simpleclip magit company))
+(setq ericd/package-list '(elisp-slime-nav
+                           meow
+                           simpleclip
+                           magit
+                           company))
+
+(dolist (package ericd/package-list)
   (unless (package-installed-p package)
     (package-install package)))
 
@@ -136,55 +193,6 @@
 (meow-global-mode 1)
 
 
-;;; stuff
-(setq inhibit-startup-screen t)
-(menu-bar-mode -1)
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
-(when (fboundp 'horizontal-scroll-bar-mode)
-  (horizontal-scroll-bar-mode -1))
-
-(set-frame-font "Fira Code 14" nil t)
-
-(load-theme 'modus-vivendi)
-(global-set-key (kbd "<f6>") 'toggle-theme)
-
-(setq-default show-trailing-whitespace t)
-
-(setq scroll-step 1)
-(setq scroll-margin 2)
-
-(setq uniquify-buffer-name-style 'forward)
-
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-
-(setq mouse-yank-at-point t
-      require-final-newline t
-      visible-bell t
-      backup-by-copying t
-      custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
-
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
-
-(global-set-key (kbd "C-c K") 'kill-current-buffer)
-
-(electric-pair-mode 1)
-
-(setq vc-follow-symlinks t)
-
-(setq org-directory "~/documents/org")
-
-(setq native-comp-async-report-warnings-errors 'silent)
-
-
 ;;; use-packages
 (use-package paren
   :init (setq show-paren-delay 0)
@@ -261,6 +269,10 @@
 
 (use-package company
   :hook (prog-mode . company-mode))
+
+(use-package elisp-slime-nav
+  :bind (("M-." . elisp-slime-nav-find-elisp-thing-at-point)
+         ("M-," . pop-tag-mark)))
 
 
 ;;; requires
