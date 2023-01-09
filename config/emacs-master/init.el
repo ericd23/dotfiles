@@ -267,6 +267,10 @@
   :config
   (setq org-image-actual-width 256))
 
+(use-package org-agenda
+  :config
+  (setq org-agenda-files (list (expand-file-name "gtd/" org-directory))))
+
 (use-package company
   :hook (prog-mode . company-mode))
 
