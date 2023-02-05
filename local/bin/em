@@ -1,2 +1,0 @@
-#!/bin/sh
-emacs-master --init-directory=~/.config/emacs-master/ "$@"
