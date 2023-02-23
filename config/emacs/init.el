@@ -20,6 +20,14 @@
       (message "Not a file visiting buffer!"))))
 (global-set-key (kbd "C-c d") 'ericd/delete-buffer-and-file)
 
+(defun ericd/make-file-read-only-by-path ()
+  "Make the file read-only if its path matches a certain pattern."
+  (when (string-match-p
+         (concat (regexp-quote user-emacs-directory) "elpa/.*") buffer-file-name)
+    (setq buffer-read-only t)
+    (message "File is now read-only.")))
+(add-hook 'find-file-hook 'ericd/make-file-read-only-by-path)
+
 
 ;;; stuff
 (setq inhibit-startup-screen t)
