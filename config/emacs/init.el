@@ -1,15 +1,32 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 
+;;; util functions
+(defun ericd/open-init-el ()
+  (interactive)
+  (find-file (expand-file-name "init.el" user-emacs-directory)))
+(global-set-key (kbd "<f5>") 'ericd/open-init-el)
+
+(defun ericd/delete-buffer-and-file ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if filename
+        (if (y-or-n-p (concat "Do you really want to delete file " filename " ?"))
+            (progn
+              (delete-file filename)
+              (message "Deleted file %s." filename)
+              (kill-buffer)))
+      (message "Not a file visiting buffer!"))))
+(global-set-key (kbd "C-c d") 'ericd/delete-buffer-and-file)
+
+
 ;;; stuff
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
-(when (fboundp 'horizontal-scroll-bar-mode)
-  (horizontal-scroll-bar-mode -1))
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
 
 (setq default-frame-alist '((font . "Fira Code 14")
                             (vertical-scroll-bars . nil)))
@@ -75,34 +92,6 @@
 
 (eval-when-compile
   (require 'use-package))
-
-
-;;; util functions
-(defun ericd/open-init-el ()
-  (interactive)
-  (find-file (expand-file-name "init.el" user-emacs-directory)))
-(global-set-key (kbd "<f5>") 'ericd/open-init-el)
-
-(defun ericd/delete-buffer-and-file ()
-  "Kill the current buffer and deletes the file it is visiting."
-  (interactive)
-  (let ((filename (buffer-file-name)))
-    (if filename
-        (if (y-or-n-p (concat "Do you really want to delete file " filename " ?"))
-            (progn
-              (delete-file filename)
-              (message "Deleted file %s." filename)
-              (kill-buffer)))
-      (message "Not a file visiting buffer!"))))
-(global-set-key (kbd "C-c d") 'ericd/delete-buffer-and-file)
-
-(defun ericd/org-set-hugo-draft-true ()
-  (interactive)
-  (org-roam-set-keyword "hugo_draft" "true"))
-
-(defun ericd/org-set-hugo-draft-false ()
-  (interactive)
-  (org-roam-set-keyword "hugo_draft" "false"))
 
 
 ;;; keys
