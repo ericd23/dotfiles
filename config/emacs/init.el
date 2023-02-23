@@ -94,8 +94,10 @@
 (setq ericd/package-list '(elisp-slime-nav
                            meow
                            simpleclip
+                           wrap-region
                            magit
                            vertico
+                           editorconfig
                            company))
 
 (dolist (package ericd/package-list)
@@ -249,6 +251,12 @@
   :config
   (setq eldoc-echo-area-use-multiline-p 3) ; https://github.com/joaotavora/eglot/issues/514
   (setq eldoc-prefer-doc-buffer t))
+
+(use-package wrap-region
+  :config (wrap-region-mode 1))
+
+(use-package editorconfig
+  :config (editorconfig-mode 1))
 
 
 ;;; requires
