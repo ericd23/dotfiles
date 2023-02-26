@@ -67,6 +67,9 @@
 
 (global-set-key (kbd "C-c K") 'kill-current-buffer)
 
+(global-set-key (kbd "C-j") 'scroll-up-command)
+(global-set-key (kbd "C-k") 'scroll-down-command)
+
 (setq org-directory "~/documents/org")
 
 (electric-pair-mode 1)
@@ -158,7 +161,6 @@
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
    '("f" . meow-find)
-   '("g" . meow-cancel-selection)
    '("G" . meow-grab)
    '("h" . meow-left)
    '("H" . meow-left-expand)
@@ -176,7 +178,7 @@
    '("O" . meow-to-block)
    '("p" . meow-yank)
    '("q" . meow-quit)
-   '("Q" . meow-goto-line)
+   '("Q" . meow-cancel-selection)
    '("r" . meow-replace)
    '("R" . meow-swap-grab)
    '("s" . meow-kill)
