@@ -67,8 +67,8 @@
 
 (global-set-key (kbd "C-c K") 'kill-current-buffer)
 
-(global-set-key (kbd "C-j") 'scroll-up-command)
-(global-set-key (kbd "C-k") 'scroll-down-command)
+(global-set-key (kbd "C-H") 'previous-buffer)
+(global-set-key (kbd "C-L") 'next-buffer)
 
 (setq org-directory "~/documents/org")
 
@@ -178,8 +178,8 @@
    '("o" . meow-block)
    '("O" . meow-to-block)
    '("p" . meow-yank)
-   '("q" . meow-quit)
-   '("Q" . meow-cancel-selection)
+   '("q" . meow-cancel-selection)
+   '("Q" . meow-quit)
    '("r" . meow-replace)
    '("R" . meow-swap-grab)
    '("s" . meow-kill)
@@ -215,13 +215,13 @@
   (simpleclip-mode 1))
 
 (use-package eglot
-  :bind (("C-c L" . eglot)
-         ("C-c l s" . eglot-shutdown)
-         ("C-c l r" . eglot-rename)
-         ("C-c l f" . eglot-format)
+  :bind (("C-c E" . eglot)
+         ("C-c e s" . eglot-shutdown)
+         ("C-c e r" . eglot-rename)
+         ("C-c e f" . eglot-format)
          ("C-c k" . eldoc-doc-buffer)
-         ("C-c l d" . xref-find-definitions)
-         ("C-c l m" . imenu)))
+         ("C-c e d" . xref-find-definitions)
+         ("C-c e m" . imenu)))
 
 (use-package hideshow
   :hook (prog-mode . hs-minor-mode)
