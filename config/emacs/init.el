@@ -67,7 +67,7 @@
 
 (global-set-key (kbd "C-c K") 'kill-current-buffer)
 
-(global-set-key (kbd "C-H") 'previous-buffer)
+(global-set-key (kbd "C-l") 'previous-buffer)
 (global-set-key (kbd "C-L") 'next-buffer)
 
 (setq org-directory "~/documents/org")
