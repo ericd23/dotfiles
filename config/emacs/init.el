@@ -102,6 +102,7 @@
                            vertico
                            editorconfig
                            xcscope
+                           orderless
                            company))
 
 (dolist (package ericd/package-list)
@@ -232,7 +233,9 @@
          ("C-c O" . hs-show-all)))
 
 (use-package vertico
-  :config (vertico-mode))
+  :config
+  (vertico-mode)
+  (setq vertico-cycle t))
 
 (use-package org
   :bind (("C-c p p" . org-toggle-inline-images))
@@ -263,6 +266,12 @@
 
 (use-package xcscope
   :config (cscope-setup))
+
+(use-package orderless
+  :init
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
 
 
 ;;; requires
