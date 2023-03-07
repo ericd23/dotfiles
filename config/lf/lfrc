@@ -64,7 +64,7 @@ cmd zip ${{
 
 cmd annotate ${{
   set -f
-  xournalpp $fx >/dev/null 2>&1 & disown
+  flatpak run org.kde.okular $fx >/dev/null 2>&1 & disown
 }}
 
 cmd ecnwedit ${{
@@ -77,7 +77,7 @@ cmd ecedit ${{
   ec $fx
 }}
 
-map C extract
+map Z extract
 map D delete
 map T transfer
 map A annotate
