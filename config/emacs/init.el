@@ -101,6 +101,7 @@
                            magit
                            vertico
                            editorconfig
+                           xcscope
                            company))
 
 (dolist (package ericd/package-list)
@@ -259,6 +260,9 @@
 
 (use-package editorconfig
   :config (editorconfig-mode 1))
+
+(use-package xcscope
+  :config (cscope-setup))
 
 
 ;;; requires
