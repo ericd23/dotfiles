@@ -14,6 +14,7 @@ export EMACSDIR="$XDG_CONFIG_HOME"/emacs
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export GOPATH="$XDG_DATA_HOME"/go
 export DOTS=~/.dotfiles
 
 export GTK_IM_MODULE=fcitx
