@@ -5,6 +5,7 @@ set scrolloff 10
 set period 1
 set hidden off
 set info ctime
+set sortby ext
 
 set previewer ctpv
 set cleaner ctpvclear
