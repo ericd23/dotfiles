@@ -259,7 +259,7 @@
   (setq eldoc-prefer-doc-buffer t))
 
 (use-package wrap-region
-  :config (wrap-region-mode 1))
+  :config (wrap-region-global-mode 1))
 
 (use-package editorconfig
   :config (editorconfig-mode 1))
