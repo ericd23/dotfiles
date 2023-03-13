@@ -265,7 +265,9 @@
   :config (editorconfig-mode 1))
 
 (use-package xcscope
-  :config (cscope-setup))
+  :config
+  (cscope-setup)
+  (setq cscope-option-kernel-mode t)) ; always ignore `/usr/include' and include headers manually
 
 (use-package orderless
   :init
