@@ -12,7 +12,7 @@ feh --randomize --bg-fill ${HOME}/pictures/wallpapers/* --no-fehbg &
 dwmblocks &
 xautolock -time 10 -locker slock &
 redshift &
-syncthing -no-browser >/dev/null 2>&1 &
+#syncthing -no-browser >/dev/null 2>&1 &
 pipewire >/dev/null 2>&1 &
 fcitx5 -d >/dev/null 2>&1 &
 picom &
