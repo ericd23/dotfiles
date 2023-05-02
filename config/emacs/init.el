@@ -265,8 +265,11 @@
   :config (editorconfig-mode 1))
 
 (use-package xcscope
+  :init
+  (add-hook 'c-mode-hook (function cscope-minor-mode))
+  (add-hook 'c++-mode-hook (function cscope-minor-mode))
+  (add-hook 'dired-mode-hook (function cscope-minor-mode))
   :config
-  (cscope-setup)
   (setq cscope-option-kernel-mode t)) ; always ignore `/usr/include' and include headers manually
 
 (use-package orderless
