@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo tlp setcharge 40 50
