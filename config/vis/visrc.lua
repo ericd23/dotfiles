@@ -1,6 +1,6 @@
 require('vis')
 
-local plug = require('plugins/vis-plug')
+local plug = require('vis-plug')
 
 vis.events.subscribe(vis.events.INIT, function()
     -- global configuration options
