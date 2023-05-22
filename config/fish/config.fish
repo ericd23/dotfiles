@@ -17,7 +17,6 @@ alias gdog="git log --all --decorate --oneline --graph"
 alias gb="git branch"
 
 alias ..="cd .."
-alias bs="sudo powertop --auto-tune"
 alias grl="grep --recursive --line-number --binary-files=without-match --exclude-dir=node_modules --exclude-dir=.git"
 alias d="cd $DOTS"
 alias e=exit
@@ -26,7 +25,3 @@ alias pms="pacman -Ss"
 alias pmf="pacman -Fl"
 alias s="sudo su"
 alias bm=bashmount
-
-alias red="sudo sh -c 'rmmod psmouse; modprobe psmouse proto=imps'"
-alias tap="xinput --set-prop 'Synaptics TM3203-003' 'libinput Tapping Enabled' 1"
-
