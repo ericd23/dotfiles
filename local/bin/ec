@@ -1,2 +1,0 @@
-#!/bin/sh
-emacsclient -c "$@" >/dev/null 2>&1 & disown
