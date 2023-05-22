@@ -1,9 +1,9 @@
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/.local/share/cargo/bin:$PATH
 export SHELL=fish
 export EDITOR=vis
 export VISUAL=vis
 export PAGER=less
-export BROWSER=firefox
+export BROWSER=brave
 export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
@@ -16,10 +16,11 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export GOPATH="$XDG_DATA_HOME"/go
 export DOTS=~/.dotfiles
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
 
 [ "$(uname)" = "Linux" ] && [ "$(tty)" = "/dev/tty1" ] && \
 ! pidof -s Xorg >/dev/null 2>&1 && \
