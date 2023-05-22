@@ -1,4 +1,4 @@
-directory: /run/media/user/ext/music
+directory: /run/media/eric/ext/music
 import:
   move: yes
   write: yes
