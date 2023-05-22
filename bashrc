@@ -1,3 +1,5 @@
+unset HISTFILE
+
 # for dvtm
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
 then
