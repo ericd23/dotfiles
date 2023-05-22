@@ -3,7 +3,7 @@ set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
 set period 1
-set hidden off
+set hidden true
 set info ctime
 set sortby ext
 
@@ -16,9 +16,6 @@ cmd open ${{
   test -L $f && f=$(readlink -f $f)
   case $(file --mime-type $f -b) in
     text/*|application/json|inode/x-empty) $EDITOR $fx;;
-  #  audio/*) mpv --audio-display=no $f ;;
-  #  video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-  #  application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
     *) handlr open $fx
   esac
 }}
@@ -68,14 +65,9 @@ cmd annotate ${{
   flatpak run org.kde.okular $fx >/dev/null 2>&1 & disown
 }}
 
-cmd ecnwedit ${{
+cmd vscedit ${{
   set -f
-  emacsclient -nw $fx
-}}
-
-cmd ecedit ${{
-  set -f
-  ec $fx
+  vscodium $fx
 }}
 
 map Z extract
@@ -85,5 +77,4 @@ map A annotate
 map <enter> shell
 map x $$f
 map X !$f
-map e ecnwedit
-map E ecedit
+map E vscedit
