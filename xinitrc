@@ -1,9 +1,6 @@
 #!/bin/sh
 
-# input tuning
-xinput set-prop "DELL0922:00 04F3:30E3 Touchpad" "libinput Tapping Enabled"           1 &
-xinput set-prop "DELL0922:00 04F3:30E3 Touchpad" "libinput Natural Scrolling Enabled" 0 &
-xinput set-prop "Synaptics TM3203-003"           "libinput Tapping Enabled"           1 &
+xinput set-prop Synaptics\ TM3289-021 libinput\ Tapping\ Enabled 1 &
 
 # background programs
 export $(dbus-launch) # dbus must come first
@@ -12,12 +9,10 @@ feh --randomize --bg-fill ${HOME}/pictures/wallpapers/* --no-fehbg &
 dwmblocks &
 xautolock -time 10 -locker slock &
 redshift &
-#syncthing -no-browser >/dev/null 2>&1 &
 pipewire >/dev/null 2>&1 &
-fcitx5 -d >/dev/null 2>&1 &
+ibus-daemon -rxR >/dev/null 2>&1 &
 picom &
 qpwgraph -m &
-emacs --daemon >/dev/null 2>&1 &
 export $(gnome-keyring-daemon --start --components=secrets,ssh)
 
 exec dwm
