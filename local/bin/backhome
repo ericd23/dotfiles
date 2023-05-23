@@ -1,0 +1,27 @@
+#!/bin/bash
+# back up important files
+
+cat <<EOF >/tmp/backhome-list
+-C$HOME
+documents
+downloads
+pictures
+src
+tmp
+
+.config/BraveSoftware
+.config/calibre
+.config/clash
+.config/gnupg
+.config/hut
+.config/Logseq
+.config/VSCodium
+.config/xournalpp
+
+.local/share/pass
+
+.logseq
+.ssh
+EOF
+
+tar cPf home.tar --files-from /tmp/backhome-list

@@ -1,0 +1,20 @@
+#!/bin/bash
+# back up important files
+
+cat <<EOF >/tmp/backetc-list
+-C/etc
+
+clash
+runlevels
+wpa_supplicant
+conf.d
+init.d
+pacman.d
+pam.d
+pacman.conf
+resolv.conf
+
+EOF
+
+sudo tar cPf etc.tar --files-from /tmp/backetc-list
+sudo chown eric:eric etc.tar
