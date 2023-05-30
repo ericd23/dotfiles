@@ -1,0 +1,11 @@
+#!/bin/sh
+
+xinput set-prop Synaptics\ TM3289-021 libinput\ Tapping\ Enabled 1 &
+
+export $(dbus-launch) # dbus must come first
+dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY & # for gnome-keyring
+redshift &
+pipewire >/dev/null 2>&1 &
+qpwgraph -m &
+
+exec startxfce4
