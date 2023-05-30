@@ -3,7 +3,7 @@ export SHELL=fish
 export EDITOR=vis
 export VISUAL=vis
 export PAGER=less
-export BROWSER=brave
+export BROWSER=mullvad-browser
 export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
@@ -22,6 +22,8 @@ export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 
-[ "$(uname)" = "Linux" ] && [ "$(tty)" = "/dev/tty1" ] && \
-! pidof -s Xorg >/dev/null 2>&1 && \
-exec startx
+if [ "$(tty)" = "/dev/tty1" ]; then
+    startx -- :0
+elif [ "$(tty)" = "/dev/tty2" ]; then
+    startx -- :1
+fi
