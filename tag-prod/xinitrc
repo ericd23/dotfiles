@@ -9,7 +9,6 @@ dwmblocks &
 xautolock -time 10 -locker slock &
 redshift &
 pipewire >/dev/null 2>&1 &
-picom &
 qpwgraph -m &
 
 exec dwm
