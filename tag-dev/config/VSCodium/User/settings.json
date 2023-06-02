@@ -6,7 +6,7 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Tomorrow Night Blue",
     "C_Cpp.intelliSenseEngine": "disabled",
     "latex-workshop.latex.recipes": [
         {
