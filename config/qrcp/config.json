@@ -1,6 +1,6 @@
 {
     "fqdn": "",
-    "interface": "wlan0",
+    "interface": "wlp2s0",
     "port": 1234,
     "keepAlive": true,
     "path": "q",
