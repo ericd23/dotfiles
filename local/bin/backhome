@@ -3,15 +3,18 @@
 
 cat <<EOF >/tmp/backhome-list
 -C$HOME
-documents
-downloads
-pictures
+Data
+Documents
+Downloads
+Music
+Pictures
 src
 tmp
+win
 
 .config/BraveSoftware
 .config/calibre
-.config/clash
+.config/evolution
 .config/gnupg
 .config/hut
 .config/Logseq
@@ -22,6 +25,7 @@ tmp
 
 .logseq
 .ssh
+.vscode-oss
 EOF
 
 tar cPf home.tar --files-from /tmp/backhome-list
