@@ -1,5 +1,5 @@
-export PATH=~/.local/bin:~/.local/share/cargo/bin:$PATH
-export SHELL=fish
+export PATH=~/.local/bin:$PATH
+export SHELL=zsh
 export EDITOR=vis
 export VISUAL=vis
 export PAGER=less

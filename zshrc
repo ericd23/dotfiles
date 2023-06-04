@@ -1,9 +1,5 @@
-set -U fish_greeting
-fish_vi_key_bindings
-
 alias l="ls -alFh"
 alias lt="ls -alFht"
-
 alias ga="git add"
 alias gd="git diff"
 alias gst="git status"
@@ -15,7 +11,6 @@ alias glg="git log --graph --pretty=format:'%h/%an - %s'"
 alias gus="git restore --staged"
 alias gdog="git log --all --decorate --oneline --graph"
 alias gb="git branch"
-
 alias ..="cd .."
 alias grl="grep --recursive --line-number --binary-files=without-match --exclude-dir=node_modules --exclude-dir=.git"
 alias d="cd $DOTS"
@@ -25,3 +20,20 @@ alias pms="pacman -Ss"
 alias pmf="pacman -Fl"
 alias s="sudo su"
 alias bm=bashmount
+
+autoload -Uz compinit promptinit
+
+promptinit
+prompt walters
+
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+zstyle ':completion:*' menu select
+bindkey '^I' complete-word       # Tab for forward completion
+bindkey '^[[Z' reverse-menu-complete  # Shift+Tab for backward completion
+
+HISTFILE="$XDG_CACHE_HOME"/zsh/zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
