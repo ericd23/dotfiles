@@ -1,10 +1,10 @@
-[Default Applications]
+[Added Associations]
 
-text/x-shellscript=text.desktop;
-x-scheme-handler/mailto=mail.desktop;
-text/plain=text.desktop;
+[Default Applications]
 application/pdf=pdf.desktop;
-image/png=img.desktop;
-image/jpeg=img.desktop;
-image/gif=img.desktop;
-inode/directory=file.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-base.desktop;
+application/x-extension-htm=brave-browser.desktop;
+image/jpeg=feh.desktop;
+image/jpg=feh.desktop;
+image/png=feh.desktop;
+inode/directory=file.desktop;
