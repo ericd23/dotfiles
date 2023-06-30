@@ -17,6 +17,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export GOPATH="$XDG_DATA_HOME"/go
 export DOTS=~/.dotfiles
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export ALIYUNPAN_CONFIG_DIR=$(readlink -f "$XDG_CONFIG_HOME"/aliyunpan)
 
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus

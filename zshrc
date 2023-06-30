@@ -21,6 +21,7 @@ alias pmf="pacman -Fl"
 alias bm=bashmount
 alias sc="systemctl"
 alias scu="systemctl --user"
+alias ap="aliyunpan-go"
 
 autoload -Uz compinit promptinit
 
