@@ -18,8 +18,9 @@ alias e=exit
 alias pmd="pacman -Si"
 alias pms="pacman -Ss"
 alias pmf="pacman -Fl"
-alias s="sudo su"
 alias bm=bashmount
+alias sc="systemctl"
+alias scu="systemctl --user"
 
 autoload -Uz compinit promptinit
 
