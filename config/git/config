@@ -3,3 +3,5 @@
 	email = ed@mailbox.org
 [init]
 	defaultBranch = master
+[pull]
+	rebase = true
