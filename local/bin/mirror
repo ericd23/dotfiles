@@ -1,3 +1,9 @@
 #!/bin/sh
+monitors=$(xrandr --current | grep -w connected | awk '{print $1}')
+n=$(echo "$monitors" | wc -l)
+if [ $n -eq 2 ]; then
+    first=$(echo "$monitors" | head -n 1)
+    second=$(echo "$monitors" | tail -n 1)
+    xrandr --output "$second" --same-as "$first"
+fi
 
-xrandr --output eDP-1 --same-as HDMI-1

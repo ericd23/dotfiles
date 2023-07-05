@@ -1,13 +1,7 @@
 #!/bin/sh
 
 # dual monitors
-monitors=$(xrandr --current | grep -w connected | awk '{print $1}')
-n=$(echo "$monitors" | wc -l)
-if [ $n -eq 2 ]; then
-    first=$(echo "$monitors" | head -n 1)
-    second=$(echo "$monitors" | tail -n 1)
-    xrandr --output "$second" --left-of "$first"
-fi
+dual &
 
 # input tuning
 xinput set-prop Synaptics\ TM3289-021 libinput\ Tapping\ Enabled 1 &

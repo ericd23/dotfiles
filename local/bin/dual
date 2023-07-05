@@ -1,2 +1,8 @@
 #!/bin/sh
-xrandr --output HDMI-1 --left-of eDP-1
+monitors=$(xrandr --current | grep -w connected | awk '{print $1}')
+n=$(echo "$monitors" | wc -l)
+if [ $n -eq 2 ]; then
+    first=$(echo "$monitors" | head -n 1)
+    second=$(echo "$monitors" | tail -n 1)
+    xrandr --output "$second" --left-of "$first"
+fi
