@@ -16,7 +16,8 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export GOPATH="$XDG_DATA_HOME"/go
 export DOTS=~/.dotfiles
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+#export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export _JAVA_AWT_WM_NONREPARENTING=1
 export ALIYUNPAN_CONFIG_DIR=$(readlink -f "$XDG_CONFIG_HOME"/aliyunpan)
 
 export GTK_IM_MODULE=ibus
