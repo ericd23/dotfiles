@@ -1,0 +1,4 @@
+# JetBrains Toolbox
+export PATH="$PATH:/Users/eric/Library/Application Support/JetBrains/Toolbox/scripts"
+
+export NVM_DIR="$HOME/.nvm"

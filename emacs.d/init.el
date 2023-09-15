@@ -29,6 +29,7 @@
                             (horizontal-scroll-bars . nil)
 			    (font . "Fira Code 12")))
 
+
 (setq native-comp-async-report-warnings-errors 'silent)
 
 ;; Fix archaic defaults
@@ -98,6 +99,8 @@ If the new path's directories does not exist, create them."
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-project-search-path '("~/src/")))
 
+(use-package magit
+  :ensure t)
 
 (electric-pair-mode 1)
 (display-line-numbers-mode 1)

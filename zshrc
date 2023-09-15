@@ -1,3 +1,5 @@
+# interactive shell profile
+
 alias l="ls -alFh"
 alias lt="ls -alFht"
 alias ga="git add"
@@ -21,7 +23,6 @@ alias pmf="pacman -Fl"
 alias bm=bashmount
 alias sc="systemctl"
 alias scu="systemctl --user"
-alias ap="aliyunpan-go"
 
 autoload -Uz compinit promptinit
 
@@ -37,5 +38,4 @@ HISTFILE="$XDG_CACHE_HOME"/zsh/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.shellrc ] && . ~/.shellrc
