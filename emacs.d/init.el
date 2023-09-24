@@ -84,8 +84,13 @@ If the new path's directories does not exist, create them."
 
 (use-package corfu
   :ensure t
+  :custom
+  (corfu-cycle t)
   :config
-  (global-corfu-mode))
+  (global-corfu-mode)
+  :bind
+  (:map corfu-map
+	("RET" . nil)))
 
 (use-package which-key
   :ensure t
@@ -100,6 +105,17 @@ If the new path's directories does not exist, create them."
   (setq projectile-project-search-path '("~/src/")))
 
 (use-package magit
+  :ensure t)
+
+(use-package vertico
+  :ensure t
+  :config
+  (vertico-mode))
+
+(use-package lua-mode
+  :ensure t)
+
+(use-package fennel-mode
   :ensure t)
 
 (electric-pair-mode 1)
