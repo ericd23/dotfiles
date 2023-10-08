@@ -23,6 +23,7 @@ alias pmf="pacman -Fl"
 alias bm=bashmount
 alias sc="systemctl"
 alias scu="systemctl --user"
+alias n=nvim
 
 autoload -Uz compinit promptinit
 

@@ -2,8 +2,8 @@
 
 export PATH=~/.local/bin:$PATH
 export SHELL=zsh
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export PAGER=less
 export BROWSER=brave
 export DOTS=~/.dotfiles
