@@ -24,6 +24,7 @@ alias bm=bashmount
 alias sc="systemctl"
 alias scu="systemctl --user"
 alias n=nvim
+alias para="lf ~/Documents/PARA"
 
 autoload -Uz compinit promptinit
 
