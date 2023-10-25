@@ -50,3 +50,10 @@ set noerrorbells visualbell t_vb=
 set mouse+=a
 
 set viminfo=
+
+" Indentation
+:vnoremap < <gv
+:vnoremap > >gv
+
+" Clipboard
+set clipboard=unnamedplus
