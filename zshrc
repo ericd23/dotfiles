@@ -41,3 +41,4 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 [ -s ~/.shrc ] && . ~/.shrc
+eval "$(atuin init zsh)"
