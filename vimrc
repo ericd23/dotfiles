@@ -41,8 +41,8 @@ set noerrorbells visualbell t_vb=
 set clipboard=unnamedplus
 
 " Vim-plug
-call plug#begin()
-Plug 'tpope/vim-surround'
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-commentary'
-call plug#end()
+" call plug#begin()
+" Plug 'tpope/vim-surround'
+" Plug 'machakann/vim-highlightedyank'
+" Plug 'tpope/vim-commentary'
+" call plug#end()
