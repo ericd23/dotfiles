@@ -12,7 +12,7 @@ pipewire >/dev/null 2>&1 &
 ibus-daemon -rxR >/dev/null 2>&1 &
 picom &
 qpwgraph -m &
-export $(gnome-keyring-daemon --daemonize --start --components=secrets,ssh)
+eval `ssh-agent`
 
 # WM
 exec i3
