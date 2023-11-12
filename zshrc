@@ -44,5 +44,3 @@ SAVEHIST=10000
 eval "$(atuin init zsh)"
 
 source <(atuin gen-completions --shell zsh)
-source <(devpod completion zsh)
-source <(colima completion zsh)
