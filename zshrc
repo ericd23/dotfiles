@@ -25,6 +25,7 @@ alias sc="systemctl"
 alias scu="systemctl --user"
 alias n=nvim
 alias para="lf ~/Documents/PARA"
+alias g=gitui
 
 autoload -Uz compinit promptinit
 
