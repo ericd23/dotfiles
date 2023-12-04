@@ -26,6 +26,7 @@ alias scu="systemctl --user"
 alias n=nvim
 alias para="lf ~/Documents/PARA"
 alias g=gitui
+alias pp="pass git push"
 
 autoload -Uz compinit promptinit
 
