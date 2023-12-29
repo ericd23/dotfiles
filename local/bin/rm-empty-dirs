@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Function to find and optionally delete directories
+find_and_delete_dirs() {
+    local search_depth=$1
+    local dirs
+
+    # Perform the search based on the specified depth
+    if [ "$search_depth" == "1" ]; then
+        dirs=$(find . -maxdepth 1 -type d -empty)
+    else
+        dirs=$(find . -type d -empty)
+    fi
+
+    # Check if any empty directories were found
+    if [ -z "$dirs" ]; then
+        echo "No empty directories found."
+        return
+    fi
+
+    # Print the found empty directories
+    echo "Empty directories found:"
+    echo "$dirs"
+
+    # Ask the user if they want to delete the directories
+    read -p "Do you want to delete these directories? (y/N): " confirm
+    confirm=${confirm,,}  # Convert to lowercase
+
+    # Delete the directories if confirmed
+    if [[ $confirm == 'y' || $confirm == 'yes' ]]; then
+        echo "$dirs" | xargs rmdir
+        echo "Empty directories have been deleted."
+    else
+        echo "No directories were deleted."
+    fi
+}
+
+# Ask user for the search depth
+read -p "Do you want to search only at the first-level? (Y/n): " depth_choice
+depth_choice=${depth_choice,,}  # Convert to lowercase
+
+if [[ $depth_choice != 'n' ]]; then
+    find_and_delete_dirs 1
+else
+    find_and_delete_dirs 2
+fi
