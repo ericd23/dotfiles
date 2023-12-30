@@ -5,3 +5,5 @@
 	defaultBranch = master
 [pull]
 	rebase = true
+[safe]
+	directory = /home/eric/.cache/yay/auto-cpufreq/src/opt/auto-cpufreq/

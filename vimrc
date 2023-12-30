@@ -1,3 +1,5 @@
+" sourced by neovim
+
 set nocompatible
 syntax on
 set number
