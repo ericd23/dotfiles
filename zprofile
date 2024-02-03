@@ -1,6 +1,6 @@
 # login sessions profile
 
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/go/bin:$PATH
 export SHELL=zsh
 export EDITOR=nvim
 export VISUAL=nvim
