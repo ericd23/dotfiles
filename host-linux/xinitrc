@@ -13,7 +13,6 @@ xautolock -time 10 -locker slock &
 redshift &
 pipewire >/dev/null 2>&1 &
 ibus-daemon -rxR >/dev/null 2>&1 &
-picom &
 dwmblocks &
 qpwgraph -m &
 export $(gnome-keyring-daemon --daemonize --start --components=secrets,ssh)
