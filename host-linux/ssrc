@@ -1,9 +1,0 @@
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-
-if [ "$(tty)" = "/dev/tty1" ]; then
-    startx -- :0
-elif [ "$(tty)" = "/dev/tty2" ]; then
-    startx -- :1
-fi
