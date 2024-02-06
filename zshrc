@@ -39,10 +39,6 @@ zstyle ':completion:*' menu select
 bindkey '^I' complete-word       # Tab for forward completion
 bindkey '^[[Z' reverse-menu-complete  # Shift+Tab for backward completion
 
-HISTFILE="$XDG_CACHE_HOME"/zsh/zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
 [ -s ~/.shrc ] && . ~/.shrc
 eval "$(atuin init zsh)"
 
