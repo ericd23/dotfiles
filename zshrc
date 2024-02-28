@@ -1,3 +1,5 @@
+# not used because fish
+
 # interactive shell profile
 
 alias l="ls -alFh"
