@@ -1,9 +1,7 @@
 [user]
-	name = ericd
-	email = ed@mailbox.org
+	name = Eric Deng
+	email = dev@ericd.me
 [init]
 	defaultBranch = master
 [pull]
 	rebase = true
-[safe]
-	directory = /home/eric/.cache/yay/auto-cpufreq/src/opt/auto-cpufreq/
