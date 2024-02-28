@@ -1,9 +1,9 @@
 # login sessions profile
 
 export PATH=~/.local/bin:~/go/bin:$PATH
-export SHELL=zsh
-export EDITOR=nvim
-export VISUAL=nvim
+export SHELL=fish
+export EDITOR=helix
+export VISUAL=helix
 export PAGER=less
 export BROWSER=brave
 export DOTS=~/.dotfiles
