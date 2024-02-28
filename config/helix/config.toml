@@ -1,0 +1,30 @@
+theme = "amberwood"
+
+[editor]
+mouse = false
+middle-click-paste = false
+line-number = "relative"
+cursorline = true
+auto-save = true
+rulers = [80]
+bufferline = "multiple"
+
+[editor.statusline]
+left = ["mode", "version-control", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace.characters]
+tab = "→"
+tabpad = "·"
+
+[editor.indent-guides]
+render = true
+character = "╎"
+skip-levels = 1
