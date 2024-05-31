@@ -32,9 +32,5 @@ if status is-interactive
     alias pp="pass git push"
     alias sdu="systemctl --user"
 
-    function lk
-        set loc (walk $argv); and cd $loc;
-    end
-
     direnv hook fish | source
 end
