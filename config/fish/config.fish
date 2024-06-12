@@ -1,5 +1,15 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    set fish_greeting ""
+
+    if test (uname) = "Darwin"
+        if test -e ~/.config/fish/macos.fish
+            source ~/.config/fish/macos.fish
+            echo "macos.fish sourced"
+        else
+            echo "macos.fish not found"
+        end
+    end
+
     atuin init fish | source
     fish_vi_key_bindings default
 
