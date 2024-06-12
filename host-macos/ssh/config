@@ -1,3 +1,5 @@
+Include /Users/eric/.colima/ssh_config
+
 Host *
     UseKeyChain yes
     AddKeysToAgent yes
